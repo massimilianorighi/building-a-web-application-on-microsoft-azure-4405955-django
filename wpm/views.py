@@ -4,7 +4,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     print('Request for index page received')
-    return render(request, 'hello_azure/index.html')
+    return render(request, 'wpm/index.html')
 
 @csrf_exempt
 def hello(request):
@@ -17,6 +17,6 @@ def hello(request):
         else:
             print("Request for hello page received with name=%s" % name)
             context = {'name': name }
-            return render(request, 'hello_azure/hello.html', context)
+            return render(request, 'wpm/hello.html', context)
     else:
         return redirect('index')

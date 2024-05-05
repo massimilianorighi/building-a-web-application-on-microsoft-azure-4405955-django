@@ -1,13 +1,6 @@
-# Deploy a Python (Django) web app to Azure App Service - Sample Application
+# Wisdom Pet Medicine Pet Management System
 
-This is the sample Django application for the Azure Quickstart [Deploy a Python (Django or Flask) web app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python).  For instructions on how to create the Azure resources and deploy the application to Azure, refer to the Quickstart article.
-
-Sample applications are available for the other frameworks here:
-
-* Flask [https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart)
-* FastAPI [https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart)
-
-If you need an Azure account, you can [create one for free](https://azure.microsoft.com/en-us/free/).
+Django version of the C#/.NET example: "Wisdom Pet Medicine" web application.
 
 ## For local development
 
