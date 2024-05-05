@@ -2,21 +2,20 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 
-def index(request):
+@csrf_exempt
+def home(request):
+    # Logic for the Home section
     print('Request for index page received')
-    return render(request, 'wpm/index.html')
+    return render(request, 'wpm/home.html')
 
 @csrf_exempt
-def hello(request):
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        
-        if name is None or name == '':
-            print("Request for hello page received with no name or blank name -- redirecting")
-            return redirect('index')
-        else:
-            print("Request for hello page received with name=%s" % name)
-            context = {'name': name }
-            return render(request, 'wpm/hello.html', context)
-    else:
-        return redirect('index')
+def pets(request):
+    # Logic for the Pets section
+    print('Request for pets page received')
+    return render(request, 'wpm/pets.html')
+
+@csrf_exempt
+def privacy(request):
+    # Logic for the Privacy section
+    print('Request for privacy page received')
+    return render(request, 'wpm/privacy.html')
