@@ -1,0 +1,44 @@
+{% extends 'wpm/base.html' %}
+{% load static %}
+
+{% block title %}Add Pet{% endblock %}
+
+{% block content %}
+<h1>Add New Pet</h1>
+<form action="{% url 'add_pet' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" name="weight" required><br><br>
+    <label for="species">Species:</label>
+    <select id="species" name="species" required>
+        <option value="">Select Species</option>
+        {% for species in species_list %}
+            <option value="{{ species.id }}">{{ species.name }}</option>
+        {% endfor %}
+        <option value="new">Add new species</option>
+    </select>
+    <input type="text" id="new_species" name="new_species" placeholder="Enter new species" style="display: none;"><br><br>
+    <label for="breed">Breed:</label>
+    <input type="text" id="breed" name="breed" required><br><br>
+    <button type="submit" class="btn btn-primary">Add Pet</button>
+</form>
+
+<script>
+    // JavaScript to toggle display of new_species input field based on selection
+    document.getElementById('species').addEventListener('change', function() {
+        var speciesDropdown = document.getElementById('species');
+        var newSpeciesInput = document.getElementById('new_species');
+        if (speciesDropdown.value === 'new') {
+            newSpeciesInput.style.display = 'block';
+            newSpeciesInput.required = true;
+        } else {
+            newSpeciesInput.style.display = 'none';
+            newSpeciesInput.required = false;
+        }
+    });
+</script>
+{% endblock %}

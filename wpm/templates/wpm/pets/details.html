@@ -1,0 +1,29 @@
+{% extends 'wpm/base.html' %}
+{% load static %}
+
+{% block title %}Pet Details{% endblock %}
+
+{% block content %}
+<div class="card" style="width: 16rem;">
+    <img class="card-img-top" src="{% static '' %}{{ pet.photo_url }}" alt="Pet Image">
+    
+    <div class="card-body">
+        <h3 class="card-title">{{ pet.name }} ({{ pet.breed.species.name }})</h3>
+        <p>
+            {{ pet.name }} is a <b>{{ pet.age }}</b>-year-old
+            {{ pet.breed.name }}
+            that weighs <b>{{ pet.weight }}</b> kilograms.
+        </p>
+        
+        <p>Its registered owners are:</p>
+
+        <ul>
+            {% for owner in pet.owners.all %}
+                <li>{{ owner.name }}</li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'pets' %}" class="btn btn-primary">Return</a>
+    </div>
+</div>
+{% endblock %}

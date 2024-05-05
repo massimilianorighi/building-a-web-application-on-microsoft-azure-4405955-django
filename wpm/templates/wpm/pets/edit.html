@@ -1,0 +1,53 @@
+<!-- edit_pet.html -->
+{% extends 'wpm/base.html' %}
+{% load static %}
+
+{% block title %}Edit Pet{% endblock %}
+
+{% block content %}
+<h1>Edit Pet</h1>
+<form method="post">
+    {% csrf_token %}
+    
+    <!-- Name -->
+    <div class="mb-3">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ pet.name }}" class="form-control">
+    </div>
+
+    <!-- Age -->
+    <div class="mb-3">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" value="{{ pet.age }}" class="form-control">
+    </div>
+
+    <!-- Weight -->
+    <div class="mb-3">
+        <label for="weight">Weight:</label>
+        <input type="number" id="weight" name="weight" value="{{ pet.weight }}" class="form-control">
+    </div>
+
+    <!-- Breed -->
+    <div class="mb-3">
+        <label for="breed">Breed:</label>
+        <select id="breed" name="breed" class="form-control">
+            {% for breed in breeds %}
+                <option value="{{ breed.id }}" {% if breed.id == pet.breed.id %}selected{% endif %}>{{ breed.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <!-- Owner -->
+    <div class="mb-3">
+        <label for="owner">Owner:</label>
+        <select id="owner" name="owner" class="form-control">
+            {% for owner in owners %}
+                <option value="{{ owner.id }}" {% if owner.id == pet.owner.id %}selected{% endif %}>{{ owner.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a href="{% url 'pets' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

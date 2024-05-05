@@ -4,8 +4,52 @@
 {% block title %}Pets{% endblock %}
 
 {% block content %}
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<h1>Pets</h1>
+
+<!-- Search bar -->
+<input type="text" id="searchInput" placeholder="Search for pets...">
+<br><br>
+
+<!-- Table with Bootstrap -->
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Breed</th>
+                <th>Species</th>
+                <th>View</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for animal in animals %}
+            <tr>
+                <td>{{ animal.name }}</td>
+                <td>{{ animal.breed.name }}</td>
+                <td>{{ animal.breed.species.name }}</td>
+                <td><a href="{% url 'pet_detail' animal.id %}" class="btn btn-primary">View</a></td>
+                <td><a href="{% url 'pet_edit' animal.id %}" class="btn btn-warning">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
+
+<!-- Button to add a new pet -->
+<a href="{% url 'add_pet' %}" class="btn btn-success">Add New Pet</a>
+
+<!-- jQuery for search functionality -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#searchInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("table tbody tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+
 {% endblock %}
