@@ -42,7 +42,7 @@ def add_pet(request):
         else:
             # Try to retrieve the Species instance corresponding to the provided species name
             try:
-                species_instance = Species.objects.get(name=species_name)
+                species_instance = Species.objects.get(id=species_name)
             except Species.DoesNotExist:
                 # If the species doesn't exist and no new species name provided, return an error
                 return render(request, 'wpm/error.html', {'message': 'Invalid species name'})
@@ -77,12 +77,12 @@ def pet_edit(request, pet_id):
     pet = get_object_or_404(Pet, pk=pet_id)
     
     breeds = Breed.objects.all()
-    owners = Owner.objects.all()
+    # owners = Owner.objects.all()
     
     context = {
         'pet': pet,
         'breeds': breeds,
-        'owners': owners
+        # 'owners': owners
     }
     
     # Render the edit pet template with the form and pet object

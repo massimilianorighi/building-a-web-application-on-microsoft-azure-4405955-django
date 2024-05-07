@@ -38,14 +38,14 @@
     </div>
 
     <!-- Owner -->
-    <div class="mb-3">
+    <!-- <div class="mb-3">
         <label for="owner">Owner:</label>
         <select id="owner" name="owner" class="form-control">
             {% for owner in owners %}
                 <option value="{{ owner.id }}" {% if owner.id == pet.owner.id %}selected{% endif %}>{{ owner.name }}</option>
             {% endfor %}
         </select>
-    </div>
+    </div> -->
 
     <button type="submit" class="btn btn-primary">Save</button>
     <a href="{% url 'pets' %}" class="btn btn-secondary">Cancel</a>
