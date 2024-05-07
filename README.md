@@ -2,7 +2,19 @@
 
 Django version of the C#/.NET example: "Wisdom Pet Medicine" web application.
 
-## For local development
+# Execute locally
+To execute locally, first create the db.sqlite3 database that contains the pets from the course exercise. To do so, in the root folder execute:
+```
+sqlite3 db.sqlite3 < exercise_data.sql
+```
+Then, to execute the Django project:
+```
+python3 manage.py runserver
+```
+
+# Secret key
+
+## Local development
 
 Fill in a secret value in the `.env` file.
 
@@ -12,7 +24,7 @@ For local development, use this random string as an appropriate value:
 SECRET_KEY=123abc
 ```
 
-## When you deploy to Azure
+## Azure Deployment
 
 For deployment to production, create an app setting, `SECRET_KEY`. Use this command to generate an appropriate value:
 
