@@ -1,4 +1,5 @@
 # Wisdom Pet Medicine Pet Management System
+![image](pet_database.png)
 
 Django version of the C#/.NET example: "Wisdom Pet Medicine" web application.
 
@@ -13,7 +14,7 @@ To execute locally, first create the db.sqlite3 database that contains the pets 
 ```
 sqlite3 db.sqlite3 < exercise_data.sql
 ```
-Then, to execute the Django project:
+Finally, to execute the Django project:
 ```
 python3 manage.py runserver
 ```
