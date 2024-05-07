@@ -2,6 +2,12 @@
 
 Django version of the C#/.NET example: "Wisdom Pet Medicine" web application.
 
+# Django admin
+Admin page page can be reached with the following credentials:
+| Username  |  Password |
+|---|---|
+| admin  | aKxC1094  |
+
 # Execute locally
 To execute locally, first create the db.sqlite3 database that contains the pets from the course exercise. To do so, in the root folder execute:
 ```
