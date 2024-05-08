@@ -9,6 +9,11 @@ Admin page page can be reached with the following credentials:
 |---|---|
 | admin  | aKxC1094  |
 
+A new admin can be created with the following command:
+```
+python manage.py createsuperuser
+```
+
 # Execute locally
 To execute locally, first create the db.sqlite3 database that contains the pets from the course exercise. To do so, in the root folder execute:
 ```
